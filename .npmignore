@@ -4,3 +4,4 @@ bower.json
 .jshintrc
 tests
 test.bat
+.idea/

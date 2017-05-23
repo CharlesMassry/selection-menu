@@ -139,6 +139,8 @@
         instance.selectionStartElement = null;  // Track where the selection started, so that if the user releases the LMB slightly outside the container due to inertia near the edge,
         instance.selectionEndElement   = null;  // we still pop up the menu - https://github.com/iDoRecall/selection-menu/issues/8
 
+        instance.shouldDisplayMenu = options.shouldDisplayMenu || function() { return true; };
+
         // "Private" instance variables
         instance._span = null;  // a <span> that will roughly cover the selected text, and is destroyed on menu close
         instance.tether = null;  // HubSpot Tether DOM element that contains the actual menu; attached to the span
@@ -178,7 +180,7 @@
             var instance = this;
 
             // Abort if the selected text is too short or too long
-            if (instance.selectedText.length < instance.minlength || instance.selectedText.length > instance.maxlength) {
+            if (instance.selectedText.length < instance.minlength || instance.selectedText.length > instance.maxlength || instance.shouldDisplayMenu() ) {
                 return;
             }
 
