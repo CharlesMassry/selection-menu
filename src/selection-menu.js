@@ -180,7 +180,7 @@
             var instance = this;
 
             // Abort if the selected text is too short or too long
-            if (instance.selectedText.length < instance.minlength || instance.selectedText.length > instance.maxlength || instance.shouldDisplayMenu() ) {
+            if (instance.selectedText.length < instance.minlength || instance.selectedText.length > instance.maxlength || !instance.shouldDisplayMenu() ) {
                 return;
             }
 
